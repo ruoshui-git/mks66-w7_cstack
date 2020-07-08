@@ -83,16 +83,11 @@ fn main() {
                 img.render_polygon_with_stack(&stack, &polygons);
                 polygons.clear();
 
-                polygons.add_torus((0.,0.,0.,), 10., 30.);
+                polygons.add_torus((0.,0.,0.,), 5., 40.);
                 polygons *= tr::rotatez(-45.) * tr::rotatey(rot as f64 * 4.);
                 img.set_fg_color(brown);
                 img.render_polygon_with_stack(&stack, &polygons);
                 polygons.clear();
-                // stack.push_matrix();
-                // {
-                    
-                // }
-                // stack.pop_matrix();
             }
             stack.pop_matrix();
 
@@ -101,6 +96,7 @@ fn main() {
                 stack.transform_top(&tr::rotatex(rot as f64 * 3.));
                 stack.transform_top(&tr::mv(0., -80., 0.));
                 polygons.add_sphere((0., 0., 0.), 20.);
+                img.set_fg_color(light_yellow);
                 img.render_polygon_with_stack(&stack, &polygons);
                 img.set_fg_color(default_fg);
                 polygons.clear();
